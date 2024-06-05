@@ -1,0 +1,22 @@
+MVC - Model, View, Controller
+
+Model - represent the data. C# class model we can create inside model
+View - view in mvc represent for user interection.
+Controller - represent handle user request and all business logic
+
+
+https://www.demosite.com/Home/Index
+
+/Student/Edit?id=2 = QueryString = id=2
+/Student/Edit/2
+
+Html.Helper
+
+<input type="textbox" >
+<input type="hidden" >
+
+
+string - textbox
+int - textbox(number)
+boolen - checkbox
+datetime - textbox(datetime)
