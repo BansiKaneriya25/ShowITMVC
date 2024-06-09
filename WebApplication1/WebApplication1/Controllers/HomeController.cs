@@ -27,6 +27,8 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index()
         {
+            int i = 0;
+            int j = 1 / i;
             return View();
         }
 
@@ -44,10 +46,33 @@ namespace WebApplication1.Controllers
 
         //Binding to primitive type
         [HttpGet]
+        [HandleError]
         public ActionResult Edit(int id)
         {
             Student student = studentlist.FirstOrDefault(x => x.StudentId == id);
+
+            //ViewBag.ShowITLecture = "this is view bag";
+            //ViewData["ShowITLive"] = "this is view data";
+            ViewBag.ShowITLecture = null;
+            ViewData["ShowITLive"] = null;
+
+            if(student.StudentName == "Ram")
+            {
+                ViewBag.FileShow = true;
+            }
+
             return View(student);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Student student)
+        {
+            //validation if model is valid or not
+            if (ModelState.IsValid)
+            {
+                return View(student);
+            }
+            return View();
         }
 
         //Convert query string to action method param
@@ -57,9 +82,14 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult EditStudent()
+        {
+            return View();
+        }
         //Binding to Complex Type
         [HttpPost]
-        public ActionResult Edit(Student student)
+        public ActionResult EditStudent(Student student)
         {
             //
             return View();

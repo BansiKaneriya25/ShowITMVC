@@ -7,30 +7,49 @@
 }
 
 <h2>Edit</h2>
+<h5>@ViewBag.ShowITLecture</h5>
+<h5>@ViewData["ShowITLive"]</h5>
 
-@Html.HiddenFor(model => model.StudentId)
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { id = "frmEdit", enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.StudentId)
 
-@Html.TextBox("StudentName")
-@Html.Label("StudentName:") @Html.TextBoxFor(model => model.StudentName)
-@Html.Label("StudentName:") @Html.TextAreaFor(model => model.StudentName)
-@Html.Label("Age:") @Html.TextBoxFor(model => model.Age)
-@Html.Label("IsActive:") @Html.CheckBoxFor(model => model.IsActive)
+    @*@Html.TextBox("StudentName")*@
+    @Html.Label("StudentName:")
+    @Html.TextBoxFor(model => model.StudentName)
+    @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
 
-@Html.Label("Male:") @Html.RadioButtonFor(model => model.Gender, "Male")
-@Html.Label("Female:") @Html.RadioButtonFor(model => model.Gender, "Female")
+    @*@Html.Label("StudentName:") @Html.TextAreaFor(model => model.StudentName)*@
+    @Html.Label("Age:") @Html.TextBoxFor(model => model.Age)
+    @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
 
-@Html.Label("Gender:") @Html.DropDownListFor(model => model.Gender, new SelectList(Enum.GetValues(typeof(Gender))), "--Select Gender--")
+    @Html.Label("IsActive:") @Html.CheckBoxFor(model => model.IsActive)
 
-@Html.PasswordFor(model => model.Password)
+    @Html.Label("Male:") @Html.RadioButtonFor(model => model.Gender, "Male")
+    @Html.Label("Female:") @Html.RadioButtonFor(model => model.Gender, "Female")
 
-@Html.DisplayFor(model => model.StudentName)
-@Html.LabelFor(model => model.StudentName)
+    @Html.Label("Gender:") @Html.DropDownListFor(model => model.Gender, new SelectList(Enum.GetValues(typeof(Gender))), "--Select Gender--")
 
-@Html.EditorFor(model => model.StudentName)
-@Html.EditorFor(model => model.Age)
-@Html.EditorFor(model => model.IsActive)
-@Html.EditorFor(model => model.DOB)
-@Html.EditorFor(model => model.Money)
+    @Html.PasswordFor(model => model.Password)
+
+    @*@Html.DisplayFor(model => model.StudentName)
+        @Html.LabelFor(model => model.StudentName)
+
+        @Html.EditorFor(model => model.StudentName)*@
+    @Html.EditorFor(model => model.Age)
+    @Html.EditorFor(model => model.IsActive)
+    @Html.EditorFor(model => model.DOB)
+    @Html.EditorFor(model => model.Money)
+
+    if (ViewBag.FileShow == true)
+    {
+        @Html.TextBoxFor(m => m.File, new { type = "file" })
+    }
+
+    @Html.TextBoxFor(model => model.TestName)
+    <input type="submit" value="Save" class="btn btn-default" />
+}
 
 @*@using (Html.BeginForm())
     {
