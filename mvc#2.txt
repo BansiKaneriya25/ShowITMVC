@@ -1,0 +1,45 @@
+Http Verbs
+
+HttpGet - fetch the data request
+HttpPut - modify existing request save
+HttpPost - save request
+HttpDelete - delete request
+
+
+Exception Handling - 1/0 - null
+
+1. using <customErrors> element in web.config
+2. using HandleErrorAttribute
+3. Override COntroller.OnException() method
+
+Validation
+
+ValidationMethod
+ValidationSummary
+
+ViewBag 
+	- temporary transfer data - Controller to View
+	- dynamic type
+	- transfer data view to controller
+limitation
+	- doesn't required type casting
+	- can not throw error if null 
+	- can not check compile time because this is dynamic type
+
+ViewBag.Name = ""
+
+ViewData
+	- temporary transfer data - Controller to View
+	- dictionary type
+	- this is not vice-versa
+
+limitation
+	- must be type cast
+
+ViewData["ShowITLive"] = "this is demo";
+
+ViewBag vs ViewData vs TempData
+
+
+Ctrl + K + D
+
