@@ -7,6 +7,7 @@
 
 <h2>Grid</h2>
 <h4>Student</h4>
+<h5>@TempData["nameData"]</h5>
 <hr />
 <table>
     <tr>
@@ -30,8 +31,8 @@
                 @Html.DisplayFor(cc => item.Age)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.StudentId}) |
-                @Html.ActionLink("EditStaticRecord", "EditStaticRecord", new { id = item.StudentId , studentName = item.StudentName}) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+                @Html.ActionLink("EditStaticRecord", "EditStaticRecord", new { id = item.StudentId, studentName = item.StudentName }) |
                 @Html.ActionLink("Back to List", "Index")
             </td>
         </tr>

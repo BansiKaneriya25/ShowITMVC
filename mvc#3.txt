@@ -1,0 +1,64 @@
+TempData
+	- pass data one controller to another controller
+	- one request to another request
+	- Disctionary type - key value pair
+
+TempData["key_name"] = "this is test data"
+
+ViewBag vs ViewData vs TempData
+
+	- ViewBag and ViewData - pass data view to controller
+	- TempData - pass data view to controller and controller to controller (one request to another request)
+
+ViewBag - When we need to a quick and flexible way to pass data to view without worrying about data type
+ViewData - When we prefer to use key-value pair and want a more dictorinary approch
+TempData - When we need to pass data one request to another request like one controller method to another controller method
+
+Layout - specific UI portion that remain same throughout the application such as header, footer, left , right menu
+
+Partial View - is a reuseable portion of web page. .cshtml or .vbhtml
+	- more than one partial view we can create
+	- code redundant 
+
+Advantage 
+	- Code Reusability
+	- Separation of Concerns
+
+@Html.Partial("_Details", Model)
+@Html.Partial("_Details")
+
+Bind Partial View
+	- @Html.Partial() 
+		- Method render the specified partial view. it return html string
+
+	- @Html.RenderPartial()
+		- method same as @Html.Partial() method but except that it writes the result HTML of specific partial view into HTTP response directly.
+		- Syntax - method return void so semicolon is require at the end
+		@{    Html.RenderPartial("_Details"); }
+
+	- @Html.RenderAction()
+		- method execute specific action method and render the result
+		- ChildActionOnly
+
+
+Html.Partial vs Html.RenderPartial
+
+Html.Partial 
+	- return html string
+	- performance slow
+	- inject html string of partial view into main view
+	- not needed inside braces
+Html.RenderPartial 
+	- return void
+	- performace fast as compare to Html.Partial
+	- write html in response stream
+	- must inside braces @{ }
+
+Bundling and Minification
+
+- minification - technique to optimize script and css by removing unnecessary white space and short variable name and reduce size
+		- increase performace
+
+- bundling - bunch of file into one unit and load into one request
+	   -  style and script we can bundle
+		- more than one bundle possile

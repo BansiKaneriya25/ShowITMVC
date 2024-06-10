@@ -7,11 +7,11 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController : Controller
+    public class AccountController : Controller
     {
         List<Student> studentlist = new List<Student>();
 
-        public HomeController()
+        public AccountController()
         {
             studentlist.Add(new Student() { StudentId = 1, StudentName = "John", Age = 20, IsActive = true });
             studentlist.Add(new Student() { StudentId = 2, StudentName = "Ram", Age = 21, IsActive = true, Password = "ram123" });
@@ -24,87 +24,28 @@ namespace WebApplication1.Controllers
             studentlist.Add(new Student() { StudentId = 9, StudentName = "Manjari", Age = 29, IsActive = true });
             studentlist.Add(new Student() { StudentId = 10, StudentName = "Steve", Age = 22, IsActive = false });
         }
-
+        // GET: Account
         public ActionResult Index()
         {
+            return RedirectToAction("CallPartialView", "Account");
+        }
 
-            //int i = 0;
-            //int j = 1 / i;
+        public ActionResult Create()
+        {
             return View();
         }
 
-        public ActionResult Grid()
-        {
-            TempData["nameData"] = "this is temp data";
-
-            return View(studentlist);
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        //Binding to primitive type
-        [HttpGet]
-        [HandleError]
         public ActionResult Edit(int id)
         {
-            var str = TempData["nameData"];
-
             Student student = studentlist.FirstOrDefault(x => x.StudentId == id);
-
-            //ViewBag.ShowITLecture = "this is view bag";
-            //ViewData["ShowITLive"] = "this is view data";
-            ViewBag.ShowITLecture = null;
-            ViewData["ShowITLive"] = null;
-
-            if (student.StudentName == "Ram")
-            {
-                ViewBag.FileShow = true;
-            }
 
             return View(student);
         }
 
-        [HttpPost]
-        public ActionResult Edit(Student student)
+        //[ChildActionOnly]
+        public ActionResult CallPartialView()
         {
-            //validation if model is valid or not
-            if (ModelState.IsValid)
-            {
-                return View(student);
-            }
-            return View();
-        }
-
-        //Convert query string to action method param
-        [HttpGet]
-        public ActionResult EditStaticRecord(int id, string studentName)
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult EditStudent()
-        {
-            return View();
-        }
-        //Binding to Complex Type
-        [HttpPost]
-        public ActionResult EditStudent(Student student)
-        {
-            //
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return PartialView("_Details");
         }
     }
 }

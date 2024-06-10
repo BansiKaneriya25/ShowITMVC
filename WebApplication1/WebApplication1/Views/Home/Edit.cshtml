@@ -9,6 +9,7 @@
 <h2>Edit</h2>
 <h5>@ViewBag.ShowITLecture</h5>
 <h5>@ViewData["ShowITLive"]</h5>
+<h5>@TempData["nameData"]</h5>
 
 @using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { id = "frmEdit", enctype = "multipart/form-data" }))
 {

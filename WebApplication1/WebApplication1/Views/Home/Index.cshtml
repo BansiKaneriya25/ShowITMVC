@@ -40,4 +40,8 @@
     {
         @DateTime.Now.Year@: is not a leap year.
     }
+
+    @{ 
+        Html.RenderAction("CallPartialView", "Account");
+    }
 </div>
