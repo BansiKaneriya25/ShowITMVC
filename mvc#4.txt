@@ -1,0 +1,20 @@
+Area - large mvc app includes many controllers,views, models so it can be difficult to maintain it.
+- mvc provide new feature it called area.
+
+-- Area allows us to partition the large app into smaller unit where unit contain separte mvc structure
+
+
+ADO.Net approach
+
+connection string
+
+db connect -> SqlConnection
+SqlCommand
+
+
+ExecuteNonQuery - is used in operation of ado.net approach such as insert, update, delete (DDL statement)
+- do not return any data
+
+ExecuteReader - is used for select statement
+
+ExecuteScalar - only return one records - used in aggegate func in sp or inline query
