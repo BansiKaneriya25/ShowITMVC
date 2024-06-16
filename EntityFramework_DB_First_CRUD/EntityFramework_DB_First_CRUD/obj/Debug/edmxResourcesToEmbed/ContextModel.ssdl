@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShowDotNetITModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AuditEmp">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpId" Type="int" Nullable="false" />
+    <Property Name="OldFirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NewFirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OldLastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NewLastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ShowDotNetIT.dbo.EmpIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmpIndex">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ShowDotNetIT.dbo.EmployeeCND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmployeeCND">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="GenderOfPerson" />
+      <PropertyRef Name="Department" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GenderOfPerson" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDetails">
+    <Key>
+      <PropertyRef Name="EmployeeDetailId" />
+    </Key>
+    <Property Name="EmployeeDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="Department" Type="nchar" MaxLength="10" />
+    <Property Name="JobType" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="EmpSeq" Type="int" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="EmpSeq" Type="int" />
+  </EntityType>
+  <EntityType Name="EmpTrigger">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Salary" Type="int" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ShowDotNetIT.dbo.vw_product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_table">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="EmpSeq" Type="int" />
+    <Property Name="Salary" Type="nchar" MaxLength="10" />
+    <Property Name="Department" Type="nchar" MaxLength="10" />
+    <Property Name="JobType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_EmployeeDetails_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DeleteProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEmp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GenderOfPerson" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="GetEmployees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ABC" Type="nvarchar" Mode="In" />
+    <Parameter Name="Dept" Type="nvarchar" Mode="In" />
+    <Parameter Name="Result" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="GetEmployeesDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Dept" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetFullName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetProductById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Price" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SaveProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Price" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="UpdateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Price" Type="decimal" Mode="In" />
+  </Function>
+  <EntityContainer Name="ShowDotNetITModelStoreContainer">
+    <EntitySet Name="AuditEmp" EntityType="Self.AuditEmp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpTrigger" EntityType="Self.EmpTrigger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpIndex" EntityType="Self.EmpIndex" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmpIndex].[ID] AS [ID], 
+    [EmpIndex].[Name] AS [Name]
+    FROM [dbo].[EmpIndex] AS [EmpIndex]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EmployeeCND" EntityType="Self.EmployeeCND" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmployeeCND].[ID] AS [ID], 
+    [EmployeeCND].[Name] AS [Name], 
+    [EmployeeCND].[GenderOfPerson] AS [GenderOfPerson], 
+    [EmployeeCND].[Department] AS [Department]
+    FROM [dbo].[EmployeeCND] AS [EmployeeCND]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_product" EntityType="Self.vw_product" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_product].[Id] AS [Id], 
+    [vw_product].[Name] AS [Name], 
+    [vw_product].[Price] AS [Price]
+    FROM [dbo].[vw_product] AS [vw_product]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_table" EntityType="Self.vw_table" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_table].[EmployeeId] AS [EmployeeId], 
+    [vw_table].[Name] AS [Name], 
+    [vw_table].[PhoneNumber] AS [PhoneNumber], 
+    [vw_table].[Address] AS [Address], 
+    [vw_table].[Email] AS [Email], 
+    [vw_table].[Grade] AS [Grade], 
+    [vw_table].[IsActive] AS [IsActive], 
+    [vw_table].[EmpSeq] AS [EmpSeq], 
+    [vw_table].[Salary] AS [Salary], 
+    [vw_table].[Department] AS [Department], 
+    [vw_table].[JobType] AS [JobType]
+    FROM [dbo].[vw_table] AS [vw_table]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_EmployeeDetails_Employees" Association="Self.FK_EmployeeDetails_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

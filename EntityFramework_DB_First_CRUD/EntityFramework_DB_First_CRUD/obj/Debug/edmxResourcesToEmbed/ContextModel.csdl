@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShowDotNetITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="GetEmp_Result">
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GenderOfPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="AuditEmp">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpId" Type="Int32" Nullable="false" />
+    <Property Name="OldFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NewFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OldLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NewLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDetail">
+    <Key>
+      <PropertyRef Name="EmployeeDetailId" />
+    </Key>
+    <Property Name="EmployeeDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Salary" Type="Int32" />
+    <Property Name="Department" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="JobType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="EmpSeq" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeeDetails_Employees" FromRole="EmployeeDetails" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="EmpSeq" Type="Int32" />
+    <NavigationProperty Name="EmployeeDetails" Relationship="Self.FK_EmployeeDetails_Employees" FromRole="Employees" ToRole="EmployeeDetails" />
+  </EntityType>
+  <EntityType Name="EmpTrigger">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Salary" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmpIndex">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeCND">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="GenderOfPerson" />
+      <PropertyRef Name="Department" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GenderOfPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_table">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="EmpSeq" Type="Int32" />
+    <Property Name="Salary" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Department" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="JobType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_EmployeeDetails_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShowDotNetITEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AuditEmps" EntityType="Self.AuditEmp" />
+    <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetail" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="EmpTriggers" EntityType="Self.EmpTrigger" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="EmpIndexes" EntityType="Self.EmpIndex" />
+    <EntitySet Name="EmployeeCNDs" EntityType="Self.EmployeeCND" />
+    <EntitySet Name="vw_table" EntityType="Self.vw_table" />
+    <AssociationSet Name="FK_EmployeeDetails_Employees" Association="Self.FK_EmployeeDetails_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+    </AssociationSet>
+    <FunctionImport Name="GetEmp" IsComposable="true" ReturnType="Collection(ShowDotNetITModel.GetEmp_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteProduct">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmployees" ReturnType="Collection(ShowDotNetITModel.GetEmployees_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="ABC" Mode="In" Type="String" />
+      <Parameter Name="Dept" Mode="In" Type="String" />
+      <Parameter Name="Result" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmployeesDetails" ReturnType="Collection(ShowDotNetITModel.GetEmployeesDetails_Result)">
+      <Parameter Name="Dept" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetProductById" ReturnType="Collection(ShowDotNetITModel.GetProductById_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetProducts" ReturnType="Collection(ShowDotNetITModel.GetProducts_Result)" />
+    <FunctionImport Name="InsertProduct">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SaveProduct">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateProduct">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <EntitySet Name="vw_product" EntityType="ShowDotNetITModel.vw_product" />
+  </EntityContainer>
+  <ComplexType Name="GetEmployees_Result">
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Grade" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int32" Name="EmpSeq" Nullable="true" />
+    <Property Type="Int32" Name="EmployeeDetailId" Nullable="false" />
+    <Property Type="Int32" Name="Salary" Nullable="true" />
+    <Property Type="String" Name="Department" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="JobType" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="EmployeeId1" Nullable="true" />
+    <Property Type="Int32" Name="EmpSeq1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetEmployeesDetails_Result">
+    <Property Type="Int32" Name="EmployeeDetailId" Nullable="false" />
+    <Property Type="Int32" Name="Salary" Nullable="true" />
+    <Property Type="String" Name="Department" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="JobType" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="true" />
+    <Property Type="Int32" Name="EmpSeq" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetProductById_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetProducts_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <EntityType Name="vw_product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+</Schema>

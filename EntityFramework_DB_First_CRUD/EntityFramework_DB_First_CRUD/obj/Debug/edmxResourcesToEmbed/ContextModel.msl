@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShowDotNetITModelStoreContainer" CdmEntityContainer="ShowDotNetITEntities">
+    <EntitySetMapping Name="AuditEmps">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.AuditEmp">
+        <MappingFragment StoreEntitySet="AuditEmp">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="OldFirstName" ColumnName="OldFirstName" />
+          <ScalarProperty Name="NewFirstName" ColumnName="NewFirstName" />
+          <ScalarProperty Name="OldLastName" ColumnName="OldLastName" />
+          <ScalarProperty Name="NewLastName" ColumnName="NewLastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeDetails">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.EmployeeDetail">
+        <MappingFragment StoreEntitySet="EmployeeDetails">
+          <ScalarProperty Name="EmployeeDetailId" ColumnName="EmployeeDetailId" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="EmpSeq" ColumnName="EmpSeq" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EmpSeq" ColumnName="EmpSeq" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpTriggers">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.EmpTrigger">
+        <MappingFragment StoreEntitySet="EmpTrigger">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpIndexes">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.EmpIndex">
+        <MappingFragment StoreEntitySet="EmpIndex">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeCNDs">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.EmployeeCND">
+        <MappingFragment StoreEntitySet="EmployeeCND">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GenderOfPerson" ColumnName="GenderOfPerson" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_table">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.vw_table">
+        <MappingFragment StoreEntitySet="vw_table">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EmpSeq" ColumnName="EmpSeq" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="ShowDotNetITModel.Store.GetEmp" FunctionImportName="GetEmp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ShowDotNetITModel.GetEmp_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GenderOfPerson" ColumnName="GenderOfPerson" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteProduct" FunctionName="ShowDotNetITModel.Store.DeleteProduct" />
+    <FunctionImportMapping FunctionImportName="GetEmployees" FunctionName="ShowDotNetITModel.Store.GetEmployees">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ShowDotNetITModel.GetEmployees_Result">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EmpSeq" ColumnName="EmpSeq" />
+          <ScalarProperty Name="EmployeeDetailId" ColumnName="EmployeeDetailId" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+          <ScalarProperty Name="EmployeeId1" ColumnName="EmployeeId1" />
+          <ScalarProperty Name="EmpSeq1" ColumnName="EmpSeq1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetEmployeesDetails" FunctionName="ShowDotNetITModel.Store.GetEmployeesDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ShowDotNetITModel.GetEmployeesDetails_Result">
+          <ScalarProperty Name="EmployeeDetailId" ColumnName="EmployeeDetailId" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="EmpSeq" ColumnName="EmpSeq" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetProductById" FunctionName="ShowDotNetITModel.Store.GetProductById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ShowDotNetITModel.GetProductById_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetProducts" FunctionName="ShowDotNetITModel.Store.GetProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ShowDotNetITModel.GetProducts_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertProduct" FunctionName="ShowDotNetITModel.Store.InsertProduct" />
+    <FunctionImportMapping FunctionImportName="SaveProduct" FunctionName="ShowDotNetITModel.Store.SaveProduct" />
+    <FunctionImportMapping FunctionImportName="UpdateProduct" FunctionName="ShowDotNetITModel.Store.UpdateProduct" />
+    <EntitySetMapping Name="vw_product">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.vw_product">
+        <MappingFragment StoreEntitySet="vw_product">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

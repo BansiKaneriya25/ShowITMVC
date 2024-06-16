@@ -1,0 +1,27 @@
+Entity Framework
+
+- Entity framework is ORM (Object Relational Mapping) for .net app that enables .net developer to work with relational data using domain specific object without database table and columns where actually data is stored
+
+ORM - create classes based on database table and vice versa
+
+
+1. Database First
+2. Code First
+3. Model First
+
+1. Database First
+ - First we need to create database tables and all then we can use those into mvc app
+ - edmx file will generated
+ - classes will be created automatically
+
+
+Database ---> Entity Framework ---> Context and Entity Classes
+
+
+Advantage
+
+- light weight
+- fast development
+- linq integration
+- automatic changes tracking
+- seamless update
