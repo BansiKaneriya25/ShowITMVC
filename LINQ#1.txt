@@ -1,0 +1,31 @@
+LINQ - Language Integrated Query
+
+LINQ Supported Data Source:
+
+1. LINQ to Object
+2. LINQ to SQL
+3. LINQ to XML
+4. LINQ to Dataset
+
+
+Data Source (In memory) > Query > Execution
+
+
+# Select
+# SelectMany
+# Where
+# OfType
+# Distinct
+# Except
+# Intersect
+# Union
+# Concat
+# OrderBy
+# OrderByDescending
+# ThenBy
+# ThenByDescending
+# Reverse
+# Aggregate Operators --> Sum, Min, Max, Avg, Count
+# Any
+# Contains
+# FirstOrDefault, First, LastOrDefault, Last

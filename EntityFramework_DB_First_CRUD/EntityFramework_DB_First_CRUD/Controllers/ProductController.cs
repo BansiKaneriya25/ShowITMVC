@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityFramework_DB_First_CRUD.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,30 @@ namespace EntityFramework_DB_First_CRUD.Controllers
         private ShowDotNetITEntities db = new ShowDotNetITEntities();
         public ActionResult Index()
         {
-            var single = db.Employees.SingleOrDefault(x=>x.Name == "ABC");
+
+
+            //IEnumerable 
+            var empIEnumerable = db.Employees.Where(x => x.IsActive).AsEnumerable();
+            empIEnumerable = empIEnumerable.Take(2);
+            //select * from employee where isactive = 1
+            //select top 2 * from employee where isactive = 1
+
+            //IQueryable
+            var empIQueryable = db.Employees.AsQueryable().Where(x => x.IsActive);
+            empIQueryable = empIQueryable.Take(2);
+            //select top 2 * from employee where isactive = 1
+
+            //Group By
+            var empGroupBy = db.Employees.GroupBy(x => x.Grade).OrderByDescending(x => x.Key)
+                .Select(x => new EmpDetails { Key = x.Key, Employees = x.OrderByDescending(z => z.Name).ToList() })
+                //.Select(x => new { Key = x.Key, Employees = x.OrderByDescending(z => z.Name).ToList() })
+                //.Select(x => new { Employees = x.OrderByDescending(z => z.Name).ToList() })
+                .ToList();
+
+            //take only Grade B data
+            //empGroupBy.Where(x => x.Key == "B");
+
+            var single = db.Employees.SingleOrDefault(x => x.Name == "ABC");
 
             //var abc = db.Products.SqlQuery("select * from Products where Price < 15").ToList();
 
@@ -136,8 +160,8 @@ namespace EntityFramework_DB_First_CRUD.Controllers
 
             db.Employees.FirstOrDefault(x => x.Grade == "A");
             db.Employees.First();
-            db.Employees.LastOrDefault();
-            db.Employees.Last();
+            //db.Employees.LastOrDefault();
+            //db.Employees.Last();
 
             //LINQ END
 

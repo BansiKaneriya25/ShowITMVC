@@ -1,0 +1,21 @@
+IEnumerable vs IQueryable
+
+IEnumerable - 
+	Namespace - System.Collections
+	Purpose - used for querying and manipulating in-memory collection such as array, list. Designed for quering data that is already in memory
+
+IQueryable
+	Namespace - System.Linq
+	Purpose - used for querying data from external data source that may not be in memory such as database, web service, remote data store. Designed for querying data that reside outside of application memory
+
+
+Choosing between then???
+
+1. Use IEnumerable  for in-memory data collection or when dealing with small data set.
+2. Use IQueryable when dealing with large data set or remote data source like database especially when you need effecient querying and data retrive
+
+GroupBy - Key, Value
+
+A - 8 data
+B
+C
