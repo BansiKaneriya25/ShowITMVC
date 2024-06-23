@@ -58,6 +58,7 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.EmployeeCND' does not have a prim
     <Property Name="Grade" Type="nvarchar" MaxLength="50" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="EmpSeq" Type="int" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="EmpTrigger">
     <Key>

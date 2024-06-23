@@ -28,6 +28,7 @@ namespace EntityFramework_DB_First_CRUD
         public string Grade { get; set; }
         public bool IsActive { get; set; }
         public Nullable<int> EmpSeq { get; set; }
+        public string Gender { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeDetail> EmployeeDetails { get; set; }

@@ -12,7 +12,23 @@ namespace EntityFramework_DB_First_CRUD.Controllers
         private ShowDotNetITEntities db = new ShowDotNetITEntities();
         public ActionResult Index()
         {
+            //Pagination used for take and skip
+            //int PageNumber = 1;
+            //int RecordPerPage = 10;
+            //do
+            //{
+            //    if (PageNumber < 2)
+            //    {
+            //        var empPagination = db.Employees.ToList()
+            //              .Skip(PageNumber - 1 * RecordPerPage) //pagenumer - 1 * recordperpage
+            //              .Take(RecordPerPage);
+            //        PageNumber++;
+            //    }
+            //} while (true);
 
+            
+
+             
 
             //IEnumerable 
             var empIEnumerable = db.Employees.Where(x => x.IsActive).AsEnumerable();
@@ -25,12 +41,65 @@ namespace EntityFramework_DB_First_CRUD.Controllers
             empIQueryable = empIQueryable.Take(2);
             //select top 2 * from employee where isactive = 1
 
-            //Group By
+            //Group By - EF
             var empGroupBy = db.Employees.GroupBy(x => x.Grade).OrderByDescending(x => x.Key)
                 .Select(x => new EmpDetails { Key = x.Key, Employees = x.OrderByDescending(z => z.Name).ToList() })
                 //.Select(x => new { Key = x.Key, Employees = x.OrderByDescending(z => z.Name).ToList() })
                 //.Select(x => new { Employees = x.OrderByDescending(z => z.Name).ToList() })
                 .ToList();
+
+            //Group By - Linq
+            var empLinq = from emplinq in db.Employees.ToList()
+                          group emplinq by emplinq.Grade into empGrade
+                          orderby empGrade.Key descending
+                          select new EmpDetails
+                          {
+                              Key = empGrade.Key,
+                              FullName = empGrade.FirstOrDefault().Name,
+                              MobileNumber = empGrade.FirstOrDefault().PhoneNumber,
+                              Address1 = empGrade.FirstOrDefault().Address,
+                              Employees = empGrade.OrderBy(x => x.Name).ToList()
+                          };
+
+            //All column data return
+            var empLinq1 = from emplinq in db.Employees.ToList()
+                           group emplinq by emplinq.Grade into empGrade
+                           orderby empGrade.Key descending
+                           select empGrade; // anonymouse
+
+
+            //Group By with Multiple Key - EF
+            var empEF_mulKey = db.Employees.ToList().GroupBy(x => (x.Grade, x.Gender))
+                                .Where(x => x.Key.Grade.Equals("A") && x.Key.Gender.Equals("M"))
+                                .Select(y => new
+                                {
+                                    Grade = y.Key.Grade,
+                                    Gender = y.Key.Gender,
+                                    Employees = y.OrderBy(z => z.Name)
+                                });
+
+            // Get A grade male and female employee count
+            int? M_AGradeCount = empEF_mulKey.Where(x => x.Grade == "A" && x.Gender == "M").FirstOrDefault().Employees.Count();
+            int? F_AGradeCount = empEF_mulKey.Where(x => x.Grade == "A" && x.Gender == "F").FirstOrDefault()?.Employees.Count();
+
+            //Group By with Multiple Key - Linq
+            var empLinq_mulKey = from emplinq in db.Employees.ToList()
+                                 group emplinq by (emplinq.Grade, emplinq.Gender) into empGroup
+                                 orderby empGroup.Key.Gender descending
+                                 select new EmpDetails
+                                 {
+                                     Gender = empGroup.Key.Gender,
+                                     Grade = empGroup.Key.Grade,
+                                     FullName = empGroup.FirstOrDefault().Name,
+                                     MobileNumber = empGroup.FirstOrDefault().PhoneNumber,
+                                     Address1 = empGroup.FirstOrDefault().Address,
+                                     Employees = empGroup.OrderBy(x => x.Name).ToList()
+                                 };
+
+            //return top 2 M employee of A grade employee
+            var take2Emp = db.Employees.ToList().Where(x => x.Grade.Equals("A")).OrderBy(x => x.Name).Take(2);
+
+            var skipEmp = db.Employees.ToList().Skip(2);
 
             //take only Grade B data
             //empGroupBy.Where(x => x.Key == "B");
@@ -162,6 +231,17 @@ namespace EntityFramework_DB_First_CRUD.Controllers
             db.Employees.First();
             //db.Employees.LastOrDefault();
             //db.Employees.Last();
+
+            //Joins
+
+            //Left Join - Linq Query
+            var empLeftJoin = from empLJ in db.Employees.ToList() // Left table data source
+                              join empDetailLJ in db.EmployeeDetails.ToList() // Right table data source
+                              on empLJ.EmployeeId equals empDetailLJ.EmployeeId // Join column condition
+                              into empDetailsData //Performing linq group set
+                              from EmployeeDetail in empDetailsData.DefaultIfEmpty() //Performing left join
+                              select new { empLJ, EmployeeDetail }; // Projecting result to anonymous type
+
 
             //LINQ END
 

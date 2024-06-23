@@ -28,6 +28,7 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="ShowDotNetITModel.Employee">
         <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />

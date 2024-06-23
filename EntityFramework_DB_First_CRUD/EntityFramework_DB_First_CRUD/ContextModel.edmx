@@ -63,6 +63,7 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.EmployeeCND' does not have a prim
           <Property Name="Grade" Type="nvarchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="EmpSeq" Type="int" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EmpTrigger">
           <Key>
@@ -265,6 +266,7 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="EmpSeq" Type="Int32" />
           <NavigationProperty Name="EmployeeDetails" Relationship="Self.FK_EmployeeDetails_Employees" FromRole="Employees" ToRole="EmployeeDetails" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="EmpTrigger">
           <Key>
@@ -458,6 +460,7 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="ShowDotNetITModel.Employee">
               <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
