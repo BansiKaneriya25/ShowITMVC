@@ -28,6 +28,7 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="ShowDotNetITModel.Employee">
         <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmpCategoryId" ColumnName="EmpCategoryId" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -165,6 +166,14 @@
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeCategories">
+      <EntityTypeMapping TypeName="ShowDotNetITModel.EmployeeCategory">
+        <MappingFragment StoreEntitySet="EmployeeCategory">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="EmpCategoryId" ColumnName="EmpCategoryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

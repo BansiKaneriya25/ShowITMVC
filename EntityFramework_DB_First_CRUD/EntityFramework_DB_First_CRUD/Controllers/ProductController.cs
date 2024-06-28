@@ -26,9 +26,9 @@ namespace EntityFramework_DB_First_CRUD.Controllers
             //    }
             //} while (true);
 
-            
 
-             
+
+
 
             //IEnumerable 
             var empIEnumerable = db.Employees.Where(x => x.IsActive).AsEnumerable();
@@ -242,7 +242,49 @@ namespace EntityFramework_DB_First_CRUD.Controllers
                               from EmployeeDetail in empDetailsData.DefaultIfEmpty() //Performing left join
                               select new { empLJ, EmployeeDetail }; // Projecting result to anonymous type
 
+            //Inner Join - Linq Query
+            var empInnerJoin = from empLJ in db.Employees.ToList() // Left table data source
+                               join empDetailLJ in db.EmployeeDetails.ToList() // Right table data source
+                               on empLJ.EmployeeId equals empDetailLJ.EmployeeId // Join column condition
+                               //into empDetailsData //Performing linq group set
+                               //from EmployeeDetail in empDetailsData //Performing inner join
+                               select new { empLJ, empDetailLJ }; // Projecting result to anonymous type
 
+            var empEFInnerJoin = db.Employees.ToList() //Outer Data Source
+                                    .Join(db.EmployeeDetails.ToList(), //Inner Data Source
+                                        employee => employee.EmployeeId, //Outer Key Selector
+                                        empDetails => empDetails.EmployeeId, //Inner Key Selector
+                                        (employee, empDetails) => new EmpDetails1() //Projecting the data into result set
+                                        {
+                                            Employees = employee,
+                                            EmployeeDetails = empDetails,
+                                            FullName = employee.Name + " " + employee.Name
+                                        }).ToList();
+
+            //Inner Join - Linq Query with Multiple data source
+            var empInnerJoinMultipleDataSource = from empLJ in db.Employees.ToList() // Left table data source
+                                                 join empDetailLJ in db.EmployeeDetails.ToList() // Right table data source
+                                                 on empLJ.EmployeeId equals empDetailLJ.EmployeeId // Join column condition
+                                                 join empCategory in db.EmployeeCategories.ToList() // Right table data source
+                                                 on empLJ.EmpCategoryId equals empCategory.EmpCategoryId // Join column condition
+                                                 select new { empLJ, empDetailLJ, empCategory }; // Projecting result to anonymous type
+            
+            //Inner Join - EF Query with Multiple data source
+            var empEFInnerJoinMultipleDataSource = db.Employees.ToList() //Outer Data Source
+                                                    .Join(db.EmployeeDetails.ToList(), //Inner Data Source
+                                                    employee => employee.EmployeeId, //Outer Key Selector
+                                                    empDetails => empDetails.EmployeeId, //Inner Key Selector
+                                                    (employee, empDetails) => new { employee, empDetails })
+                                                    .Join(db.EmployeeCategories.ToList(), //Inner Data Source 2
+                                                    employee => employee.employee.EmpCategoryId, //Outer Key Selector
+                                                    empCategory => empCategory.EmpCategoryId, //Inner Key Selector 2
+                                                    (employee, empCategory) => new { employee, empCategory })
+                                                    .Select(x => new EmpDetails1() //Projecting the data into result set
+                                                    {
+                                                        Employees = x.employee.employee,
+                                                        EmployeeDetails = x.employee.empDetails,
+                                                        FullName = x.employee.employee.Name + " " + x.employee.employee.Name
+                                                    }).ToList();
             //LINQ END
 
             return View(list);

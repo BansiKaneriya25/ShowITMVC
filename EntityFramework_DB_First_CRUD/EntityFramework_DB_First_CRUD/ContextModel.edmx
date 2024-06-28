@@ -26,6 +26,13 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.EmpIndex' does not have a primary
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="EmployeeCategory">
+          <Key>
+            <PropertyRef Name="EmpCategoryId" />
+          </Key>
+          <Property Name="EmpCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ShowDotNetIT.dbo.EmployeeCND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EmployeeCND">
@@ -64,6 +71,7 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.EmployeeCND' does not have a prim
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="EmpSeq" Type="int" />
           <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpCategoryId" Type="int" />
         </EntityType>
         <EntityType Name="EmpTrigger">
           <Key>
@@ -114,15 +122,15 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
           <Property Name="Department" Type="nchar" MaxLength="10" />
           <Property Name="JobType" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_EmployeeDetails_Employees">
-          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
-          <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="*" />
+        <Association Name="FK_Employees_EmployeeCategory">
+          <End Role="EmployeeCategory" Type="Self.EmployeeCategory" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employees">
-              <PropertyRef Name="EmployeeId" />
+            <Principal Role="EmployeeCategory">
+              <PropertyRef Name="EmpCategoryId" />
             </Principal>
-            <Dependent Role="EmployeeDetails">
-              <PropertyRef Name="EmployeeId" />
+            <Dependent Role="Employees">
+              <PropertyRef Name="EmpCategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -175,6 +183,7 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
         </Function>
         <EntityContainer Name="ShowDotNetITModelStoreContainer">
           <EntitySet Name="AuditEmp" EntityType="Self.AuditEmp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeCategory" EntityType="Self.EmployeeCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmpTrigger" EntityType="Self.EmpTrigger" Schema="dbo" store:Type="Tables" />
@@ -215,9 +224,9 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
     [vw_table].[JobType] AS [JobType]
     FROM [dbo].[vw_table] AS [vw_table]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_EmployeeDetails_Employees" Association="Self.FK_EmployeeDetails_Employees">
+          <AssociationSet Name="FK_Employees_EmployeeCategory" Association="Self.FK_Employees_EmployeeCategory">
+            <End Role="EmployeeCategory" EntitySet="EmployeeCategory" />
             <End Role="Employees" EntitySet="Employees" />
-            <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -267,6 +276,8 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
           <Property Name="EmpSeq" Type="Int32" />
           <NavigationProperty Name="EmployeeDetails" Relationship="Self.FK_EmployeeDetails_Employees" FromRole="Employees" ToRole="EmployeeDetails" />
           <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmpCategoryId" Type="Int32" />
+          <NavigationProperty Name="EmployeeCategory" Relationship="ShowDotNetITModel.FK_Employees_EmployeeCategory" FromRole="Employee" ToRole="EmployeeCategory" />
         </EntityType>
         <EntityType Name="EmpTrigger">
           <Key>
@@ -384,6 +395,11 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
             <Parameter Name="Price" Mode="In" Type="Decimal" />
           </FunctionImport>
           <EntitySet Name="vw_product" EntityType="ShowDotNetITModel.vw_product" />
+          <EntitySet Name="EmployeeCategories" EntityType="ShowDotNetITModel.EmployeeCategory" />
+          <AssociationSet Name="FK_Employees_EmployeeCategory" Association="ShowDotNetITModel.FK_Employees_EmployeeCategory">
+            <End Role="EmployeeCategory" EntitySet="EmployeeCategories" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GetEmployees_Result">
           <Property Type="Int32" Name="EmployeeId" Nullable="false" />
@@ -427,6 +443,26 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
+        <EntityType Name="EmployeeCategory">
+          <Key>
+            <PropertyRef Name="EmpCategoryId" />
+          </Key>
+          <Property Name="EmpCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="ShowDotNetITModel.FK_Employees_EmployeeCategory" FromRole="EmployeeCategory" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_Employees_EmployeeCategory">
+          <End Type="ShowDotNetITModel.EmployeeCategory" Role="EmployeeCategory" Multiplicity="0..1" />
+          <End Type="ShowDotNetITModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeCategory">
+              <PropertyRef Name="EmpCategoryId" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="EmpCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -460,6 +496,7 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="ShowDotNetITModel.Employee">
               <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmpCategoryId" ColumnName="EmpCategoryId" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -597,6 +634,14 @@ warning 6002: The table/view 'ShowDotNetIT.dbo.vw_table' does not have a primary
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeCategories">
+            <EntityTypeMapping TypeName="ShowDotNetITModel.EmployeeCategory">
+              <MappingFragment StoreEntitySet="EmployeeCategory">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="EmpCategoryId" ColumnName="EmpCategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

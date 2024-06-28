@@ -12,27 +12,18 @@ namespace EntityFramework_DB_First_CRUD
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class EmployeeCategory
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public EmployeeCategory()
         {
-            this.EmployeeDetails = new HashSet<EmployeeDetail>();
+            this.Employees = new HashSet<Employee>();
         }
     
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
-        public string Grade { get; set; }
-        public bool IsActive { get; set; }
-        public Nullable<int> EmpSeq { get; set; }
-        public string Gender { get; set; }
-        public Nullable<int> EmpCategoryId { get; set; }
+        public int EmpCategoryId { get; set; }
+        public string CategoryName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmployeeDetail> EmployeeDetails { get; set; }
-        public virtual EmployeeCategory EmployeeCategory { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

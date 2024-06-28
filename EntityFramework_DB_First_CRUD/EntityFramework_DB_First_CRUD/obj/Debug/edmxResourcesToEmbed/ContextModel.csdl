@@ -43,6 +43,8 @@
     <Property Name="EmpSeq" Type="Int32" />
     <NavigationProperty Name="EmployeeDetails" Relationship="Self.FK_EmployeeDetails_Employees" FromRole="Employees" ToRole="EmployeeDetails" />
     <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmpCategoryId" Type="Int32" />
+    <NavigationProperty Name="EmployeeCategory" Relationship="ShowDotNetITModel.FK_Employees_EmployeeCategory" FromRole="Employee" ToRole="EmployeeCategory" />
   </EntityType>
   <EntityType Name="EmpTrigger">
     <Key>
@@ -160,6 +162,11 @@
       <Parameter Name="Price" Mode="In" Type="Decimal" />
     </FunctionImport>
     <EntitySet Name="vw_product" EntityType="ShowDotNetITModel.vw_product" />
+    <EntitySet Name="EmployeeCategories" EntityType="ShowDotNetITModel.EmployeeCategory" />
+    <AssociationSet Name="FK_Employees_EmployeeCategory" Association="ShowDotNetITModel.FK_Employees_EmployeeCategory">
+      <End Role="EmployeeCategory" EntitySet="EmployeeCategories" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="GetEmployees_Result">
     <Property Type="Int32" Name="EmployeeId" Nullable="false" />
@@ -203,4 +210,24 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
+  <EntityType Name="EmployeeCategory">
+    <Key>
+      <PropertyRef Name="EmpCategoryId" />
+    </Key>
+    <Property Name="EmpCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees" Relationship="ShowDotNetITModel.FK_Employees_EmployeeCategory" FromRole="EmployeeCategory" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK_Employees_EmployeeCategory">
+    <End Type="ShowDotNetITModel.EmployeeCategory" Role="EmployeeCategory" Multiplicity="0..1" />
+    <End Type="ShowDotNetITModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeCategory">
+        <PropertyRef Name="EmpCategoryId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmpCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -36,6 +36,7 @@ namespace EntityFramework_DB_First_CRUD
         public virtual DbSet<EmployeeCND> EmployeeCNDs { get; set; }
         public virtual DbSet<vw_table> vw_table { get; set; }
         public virtual DbSet<vw_product> vw_product { get; set; }
+        public virtual DbSet<EmployeeCategory> EmployeeCategories { get; set; }
     
         [DbFunction("ShowDotNetITEntities", "GetEmp")]
         public virtual IQueryable<GetEmp_Result> GetEmp(Nullable<int> id)

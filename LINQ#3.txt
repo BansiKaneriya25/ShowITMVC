@@ -1,0 +1,14 @@
+Group By - Linq query
+Group By with multiple key
+Take
+Skip
+
+
+pagenuber - 1 * recordsperpage
+take recordsperpage
+
+Joins
+Left Join
+Inner Join
+Inner Join with Multiple Data Source
+

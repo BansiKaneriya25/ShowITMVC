@@ -1,0 +1,46 @@
+
+
+
+CRUD - create read(grid) update delete
+Grid -> products (list)
+	-> SP -> select * from products where .....
+
+
+create sp
+@pname
+@pcategry
+
+
+insert into ...
+
+
+
+delete sp
+
+@id int
+
+delete form table where id = @id
+
+
+getproductbyid
+
+@id
+
+select * from table where id = @id
+
+update sp
+@id
+@pname
+@pcategry
+
+
+update table set ...
+
+
+
+
+1# ADO.Net
+2# EF 
+	1. Linq 
+	2. Linq + SP (simple logic use linq and complex logic use SP)
+	3. SP - EF
