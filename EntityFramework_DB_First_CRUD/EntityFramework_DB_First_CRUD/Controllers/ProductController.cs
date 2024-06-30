@@ -268,7 +268,7 @@ namespace EntityFramework_DB_First_CRUD.Controllers
                                                  join empCategory in db.EmployeeCategories.ToList() // Right table data source
                                                  on empLJ.EmpCategoryId equals empCategory.EmpCategoryId // Join column condition
                                                  select new { empLJ, empDetailLJ, empCategory }; // Projecting result to anonymous type
-            
+
             //Inner Join - EF Query with Multiple data source
             var empEFInnerJoinMultipleDataSource = db.Employees.ToList() //Outer Data Source
                                                     .Join(db.EmployeeDetails.ToList(), //Inner Data Source
@@ -285,6 +285,75 @@ namespace EntityFramework_DB_First_CRUD.Controllers
                                                         EmployeeDetails = x.employee.empDetails,
                                                         FullName = x.employee.employee.Name + " " + x.employee.employee.Name
                                                     }).ToList();
+
+            //Cross Join with linq query
+            var crossJoinLinq = (from empInd in db.EmployeeINDs.ToList() //First Data Source
+                                 from empCND in db.EmployeeCNDs.ToList() //Second Data Source
+                                 select new EmpDetails
+                                 {
+                                     FullName = empCND.Name,
+                                     EmployeesIND = empInd,
+                                     EmployeesCND = empCND
+                                 }).ToList();
+
+            //Cross Join with EF query
+            var crossJoinEF = db.EmployeeINDs.ToList()
+                              .SelectMany(empCND => db.EmployeeCNDs.ToList(), (empIND, empCND) => new
+                              {
+                                  FullName = empCND.Name,
+                                  EmployeesIND = empIND,
+                                  EmployeesCND = empCND
+                              }).ToList();
+
+            //Right Join - Linq Query
+            var empRightJoin = from empDetailLJ in db.EmployeeDetails.ToList() // Right table data source
+                               join empLJ in db.Employees.ToList() // Left table data source
+                               on empDetailLJ.EmployeeId equals empLJ.EmployeeId// Join column condition
+                               into empDetailsData //Performing linq group set
+                               from EmployeeDetail in empDetailsData.DefaultIfEmpty() //Performing left join
+                               select new { empDetailLJ, EmployeeDetail }; // Projecting result to anonymous type
+
+            //Group Join with EF
+            var groupJoin = db.EmployeeCategories.ToList() //Outer Data Source
+                            .GroupJoin(db.Employees.ToList() //Group Join with Inner Data Source
+                            , ec => ec.EmpCategoryId //Outer Key Selector
+                            , e => e.EmpCategoryId //Inner Key Selector
+                            , (ec, e) => new { ec, e } // Result Set
+                            ).ToList();
+
+            //Group Join with Linq 
+            var groupJoinLinq = (from ec in db.EmployeeCategories.ToList()
+                                 join e in db.Employees.ToList()
+                                     on ec.EmpCategoryId equals e.EmpCategoryId
+                                     into empGroup
+                                 select new { ec, empGroup }).ToList();
+
+            //Full Outer Join - Linq
+            var leftJoinEmp = (from ei in db.EmployeeINDs.ToList()
+                               join ec in db.EmployeeCNDs.ToList()
+                                 on ei.ID equals ec.ID
+                                 into empAll
+                               from EmployeeCNDs in empAll.DefaultIfEmpty()
+                               select new
+                               {
+                                   ei = ei,
+                                   ec = EmployeeCNDs
+                               }).ToList();
+
+            var rightJoinEmp = (from ec in db.EmployeeCNDs.ToList()
+                               join ei in db.EmployeeINDs.ToList()
+                                 on ec.ID equals ei.ID
+                                 into empAll
+                               from EmployeeINDs in empAll.DefaultIfEmpty()
+                               select new
+                               {
+                                   ei = EmployeeINDs,
+                                   ec = ec
+                               }).ToList();
+
+            var fullOuterJoin = leftJoinEmp.Union(rightJoinEmp);
+
+
             //LINQ END
 
             return View(list);

@@ -167,6 +167,7 @@
       <End Role="EmployeeCategory" EntitySet="EmployeeCategories" />
       <End Role="Employee" EntitySet="Employees" />
     </AssociationSet>
+    <EntitySet Name="EmployeeINDs" EntityType="ShowDotNetITModel.EmployeeIND" />
   </EntityContainer>
   <ComplexType Name="GetEmployees_Result">
     <Property Type="Int32" Name="EmployeeId" Nullable="false" />
@@ -230,4 +231,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="EmployeeIND">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GenderOfPerson" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

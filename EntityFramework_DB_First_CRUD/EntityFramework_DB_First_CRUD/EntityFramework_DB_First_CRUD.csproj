@@ -163,6 +163,9 @@
     <Compile Include="EmployeeDetail.cs">
       <DependentUpon>ContextModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeIND.cs">
+      <DependentUpon>ContextModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmpTrigger.cs">
       <DependentUpon>ContextModel.tt</DependentUpon>
     </Compile>

@@ -17,6 +17,7 @@
         <EntityTypeShape EntityType="ShowDotNetITModel.vw_product" Width="1.5" PointX="0.75" PointY="7.75" />
         <EntityTypeShape EntityType="ShowDotNetITModel.EmployeeCategory" Width="1.5" PointX="0.75" PointY="10.875" />
         <AssociationConnector Association="ShowDotNetITModel.FK_Employees_EmployeeCategory" />
+        <EntityTypeShape EntityType="ShowDotNetITModel.EmployeeIND" Width="1.5" PointX="3.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
