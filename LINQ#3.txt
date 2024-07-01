@@ -10,5 +10,14 @@ take recordsperpage
 Joins
 Left Join
 Inner Join
-Inner Join with Multiple Data Source
+Inner Join with Linq Query Multiple Data Source
+Inner Join with EF Query Multiple Data Source
+Cross Join
+Right Join
+Group Join
+	- group join is used to perform two sequence (collection) based on matching keys extracted from the elements of each sequence
+	- When we use group join
+		-- when multiple table used and based on outer table we need to grouping it 
+Full Outer Join
+	Left Join + Right Join
 

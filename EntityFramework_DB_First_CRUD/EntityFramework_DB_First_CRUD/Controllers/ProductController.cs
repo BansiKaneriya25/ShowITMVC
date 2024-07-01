@@ -1,4 +1,5 @@
-﻿using EntityFramework_DB_First_CRUD.Models;
+﻿using EntityFramework_DB_First_CRUD.Auth;
+using EntityFramework_DB_First_CRUD.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,16 @@ using System.Web.Mvc;
 
 namespace EntityFramework_DB_First_CRUD.Controllers
 {
+    //[Authorize]
+    [Authorization("Product,Admin")]
     public class ProductController : Controller
     {
+        public ProductController()
+        {
+
+        }
         private ShowDotNetITEntities db = new ShowDotNetITEntities();
+
         public ActionResult Index()
         {
             //Pagination used for take and skip
@@ -341,15 +349,15 @@ namespace EntityFramework_DB_First_CRUD.Controllers
                                }).ToList();
 
             var rightJoinEmp = (from ec in db.EmployeeCNDs.ToList()
-                               join ei in db.EmployeeINDs.ToList()
-                                 on ec.ID equals ei.ID
-                                 into empAll
-                               from EmployeeINDs in empAll.DefaultIfEmpty()
-                               select new
-                               {
-                                   ei = EmployeeINDs,
-                                   ec = ec
-                               }).ToList();
+                                join ei in db.EmployeeINDs.ToList()
+                                  on ec.ID equals ei.ID
+                                  into empAll
+                                from EmployeeINDs in empAll.DefaultIfEmpty()
+                                select new
+                                {
+                                    ei = EmployeeINDs,
+                                    ec = ec
+                                }).ToList();
 
             var fullOuterJoin = leftJoinEmp.Union(rightJoinEmp);
 

@@ -1,0 +1,29 @@
+MVC - Filters
+
+	- Authorization Filters
+
+		Description
+		- Performs authentication and authorizes before executing action method
+		Interface
+		- IAuthorizationFilter
+		Built-in-Filter
+		-[Authorize],[RequiredHttps]
+
+
+
+
+Authentication - is verifying the identity of user
+Authorization -  is verifying what user can access and ensure that a user receives the right acess or permission in the system
+
+
+
+Home/Index -> this is not access by user1
+Product/Index -> this is access by both users
+
+
+Application
+	
+	User
+	Product -> Admin
+	Account
+	Billing -> specific user

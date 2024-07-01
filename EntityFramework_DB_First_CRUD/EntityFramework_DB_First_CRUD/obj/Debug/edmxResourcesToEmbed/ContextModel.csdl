@@ -168,6 +168,17 @@
       <End Role="Employee" EntitySet="Employees" />
     </AssociationSet>
     <EntitySet Name="EmployeeINDs" EntityType="ShowDotNetITModel.EmployeeIND" />
+    <EntitySet Name="Users" EntityType="ShowDotNetITModel.User" />
+    <EntitySet Name="Roles" EntityType="ShowDotNetITModel.Role" />
+    <EntitySet Name="UserRoles" EntityType="ShowDotNetITModel.UserRole" />
+    <AssociationSet Name="FK_UserRole_Role" Association="ShowDotNetITModel.FK_UserRole_Role">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role1" Association="ShowDotNetITModel.FK_UserRole_Role1">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="GetEmployees_Result">
     <Property Type="Int32" Name="EmployeeId" Nullable="false" />
@@ -240,4 +251,57 @@
     <Property Name="GenderOfPerson" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="UserRoles" Relationship="ShowDotNetITModel.FK_UserRole_Role" FromRole="User" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserRoles" Relationship="ShowDotNetITModel.FK_UserRole_Role1" FromRole="Role" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="ShowDotNetITModel.FK_UserRole_Role" FromRole="UserRole" ToRole="User" />
+    <NavigationProperty Name="Role" Relationship="ShowDotNetITModel.FK_UserRole_Role1" FromRole="UserRole" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_UserRole_Role">
+    <End Type="ShowDotNetITModel.User" Role="User" Multiplicity="1" />
+    <End Type="ShowDotNetITModel.UserRole" Role="UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role1">
+    <End Type="ShowDotNetITModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="ShowDotNetITModel.UserRole" Role="UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
