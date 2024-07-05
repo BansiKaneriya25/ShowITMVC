@@ -7,13 +7,17 @@ using System.Web.Mvc;
 
 namespace EntityFramework_DB_First_CRUD.Controllers
 {
+    [LogActionFilter]
     public class AccountController : Controller
     {
         private ShowDotNetITEntities db = new ShowDotNetITEntities();
 
         [AllowAnonymous]
-        public ActionResult Login()
+        [LogResultFilter]
+        public ActionResult Login()//2
         {
+            //int a = 0;
+            //var aaa = 1 / a;
             return View();
         }
 

@@ -10,6 +10,7 @@ namespace EntityFramework_DB_First_CRUD.Controllers
 {
     //[Authorize]
     [Authorization("Product,Admin")]
+    [LogActionFilter]
     public class ProductController : Controller
     {
         public ProductController()

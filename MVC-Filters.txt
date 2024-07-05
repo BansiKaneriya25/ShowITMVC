@@ -9,6 +9,23 @@ MVC - Filters
 		Built-in-Filter
 		-[Authorize],[RequiredHttps]
 
+	- Action Filter
+		Description
+		- Run before and after method is called. these are used for logging, caching and other process that needs to around action method execution
+		-Built-in-Filter
+		-[IActionFilter]
+	
+	- Result Filter
+		Description
+		- Implement 'IResultFilter' and run before and after the action result (like a view being rendered) is executed
+		-Built-in-Filter
+		-IResultFilter
+
+	- Exception Filter
+		Description
+		- Handle any unhandle exception throw during execution of action or result
+		-Built-in-Filter
+		-IExceptionFilter
 
 
 

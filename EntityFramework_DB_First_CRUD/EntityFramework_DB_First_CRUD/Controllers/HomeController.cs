@@ -8,6 +8,7 @@ using System.Web.Mvc;
 namespace EntityFramework_DB_First_CRUD.Controllers
 {
     [Authorization("Admin")]
+    [LogActionFilter]
     public class HomeController : Controller
     {
         public ActionResult Index()

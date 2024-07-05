@@ -132,6 +132,9 @@
       <DependentUpon>ContextModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Auth\Authorization.cs" />
+    <Compile Include="Auth\ExceptionFilter.cs" />
+    <Compile Include="Auth\LogResultFilter.cs" />
+    <Compile Include="Auth\LogActionFilter.cs" />
     <Compile Include="ContextModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -270,6 +273,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Error\AccessDenied.cshtml" />
+    <Content Include="Views\Error\ErrorIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
