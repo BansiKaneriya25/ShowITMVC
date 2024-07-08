@@ -1,0 +1,12 @@
+Web API / Rest API
+
+
+-OAzuth
+-Jwt
+
+
+postman - need to download for API execution/run
+
+StartUp class - this is entry point of application
+
+Token based authentication
