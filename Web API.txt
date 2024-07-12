@@ -10,3 +10,14 @@ postman - need to download for API execution/run
 StartUp class - this is entry point of application
 
 Token based authentication
+
+-OAzuth
+	username
+	password
+	grant_type
+
+-Jwt
+	Required Packages
+	- System.IdentityModel.Tokens.Jwt
+	- Microsoft.IdentityModel.Tokens
+	- Microsoft.Owin.Security.Jwt
