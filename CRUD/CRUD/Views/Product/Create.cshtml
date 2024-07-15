@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="button" value="Create" class="btn btn-default" onclick="SaveProduct()" />
             </div>
         </div>
     </div>
@@ -41,3 +41,28 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+
+    function SaveProduct() {
+        var summaryObject = new Object();
+        summaryObject.Name = $('#Name').val();
+        summaryObject.Price = $('#Price').val();
+
+        $.ajax({
+            type: 'POST',
+            url: "@(Url.Action("Create", "Product"))",
+            cache: false,
+            data: JSON.stringify(summaryObject),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (response) {
+                if (response.isSaved) {
+                    window.location.href = '/Product/Index/';
+                } else {
+                    alert(response.Message);
+                }
+            }
+        });
+    }
+</script>

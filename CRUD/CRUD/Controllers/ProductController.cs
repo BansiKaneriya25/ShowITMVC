@@ -55,6 +55,9 @@ namespace CRUD.Controllers
         [HttpPost]
         public ActionResult Create(Product product)
         {
+            int rowsaffected;
+            bool IsSaved = false;
+            string msg = "";
             using (var connection = new SqlConnection(connectionString))
             {
                 using (var command = new SqlCommand("SaveProduct", connection))
@@ -63,10 +66,21 @@ namespace CRUD.Controllers
                     command.Parameters.AddWithValue("@Name", product.Name);
                     command.Parameters.AddWithValue("@Price", product.Price);
                     connection.Open();
-                    int rowsaffected = command.ExecuteNonQuery();
+                    rowsaffected = command.ExecuteNonQuery();
                 }
             }
-            return RedirectToAction("Index");
+            if (rowsaffected > 0)
+            {
+                IsSaved = true;
+                msg = "Data is saved successfully.";
+            }
+            else
+            {
+                IsSaved = false;
+                msg = "Data saved failed";
+            }
+            //return RedirectToAction("Index");
+            return Json(new { isSaved = IsSaved, Message = msg });
         }
 
         public ActionResult Edit(int id)
