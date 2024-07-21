@@ -1,0 +1,12 @@
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\bin\Debug\net6.0\RepositoryArchitecture.Model.deps.json
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\bin\Debug\net6.0\RepositoryArchitecture.Model.dll
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\bin\Debug\net6.0\RepositoryArchitecture.Model.pdb
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\obj\Debug\net6.0\RepositoryArchitecture.Model.csproj.AssemblyReference.cache
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\obj\Debug\net6.0\RepositoryArchitecture.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\obj\Debug\net6.0\RepositoryArchitecture.Model.AssemblyInfoInputs.cache
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\obj\Debug\net6.0\RepositoryArchitecture.Model.AssemblyInfo.cs
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\obj\Debug\net6.0\RepositoryArchitecture.Model.csproj.CoreCompileInputs.cache
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\obj\Debug\net6.0\RepositoryArchitecture.Model.dll
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\obj\Debug\net6.0\refint\RepositoryArchitecture.Model.dll
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\obj\Debug\net6.0\RepositoryArchitecture.Model.pdb
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.Model\obj\Debug\net6.0\ref\RepositoryArchitecture.Model.dll

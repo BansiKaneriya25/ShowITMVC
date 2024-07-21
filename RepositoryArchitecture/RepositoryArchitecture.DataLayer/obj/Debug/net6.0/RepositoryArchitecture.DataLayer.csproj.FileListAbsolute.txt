@@ -1,0 +1,12 @@
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\bin\Debug\net6.0\RepositoryArchitecture.DataLayer.deps.json
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\bin\Debug\net6.0\RepositoryArchitecture.DataLayer.dll
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\bin\Debug\net6.0\RepositoryArchitecture.DataLayer.pdb
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\obj\Debug\net6.0\RepositoryArchitecture.DataLayer.csproj.AssemblyReference.cache
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\obj\Debug\net6.0\RepositoryArchitecture.DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\obj\Debug\net6.0\RepositoryArchitecture.DataLayer.AssemblyInfoInputs.cache
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\obj\Debug\net6.0\RepositoryArchitecture.DataLayer.AssemblyInfo.cs
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\obj\Debug\net6.0\RepositoryArchitecture.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\obj\Debug\net6.0\RepositoryArchitecture.DataLayer.dll
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\obj\Debug\net6.0\refint\RepositoryArchitecture.DataLayer.dll
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\obj\Debug\net6.0\RepositoryArchitecture.DataLayer.pdb
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.DataLayer\obj\Debug\net6.0\ref\RepositoryArchitecture.DataLayer.dll

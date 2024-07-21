@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "RepositoryArchitecture.ServiceLayer/1.0.0": {
+        "dependencies": {
+          "RepositoryArchitecture.DataLayer": "1.0.0",
+          "RepositoryArchitecture.Model": "1.0.0"
+        },
+        "runtime": {
+          "RepositoryArchitecture.ServiceLayer.dll": {}
+        }
+      },
+      "RepositoryArchitecture.DataLayer/1.0.0": {
+        "runtime": {
+          "RepositoryArchitecture.DataLayer.dll": {}
+        }
+      },
+      "RepositoryArchitecture.Model/1.0.0": {
+        "runtime": {
+          "RepositoryArchitecture.Model.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RepositoryArchitecture.ServiceLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RepositoryArchitecture.DataLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RepositoryArchitecture.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

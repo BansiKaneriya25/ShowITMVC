@@ -21,3 +21,8 @@ Token based authentication
 	- System.IdentityModel.Tokens.Jwt
 	- Microsoft.IdentityModel.Tokens
 	- Microsoft.Owin.Security.Jwt
+
+
+localhost/controllername/methodname
+localhost/controllername/methodname?name=product123
+localhost/controllername/methodname/product123
