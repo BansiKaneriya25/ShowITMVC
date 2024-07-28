@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "RepositoryArchitecture/1.0.0": {
         "dependencies": {
+          "RepositoryArchitecture.Model": "1.0.0",
           "RepositoryArchitecture.ServiceLayer": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3"
         },

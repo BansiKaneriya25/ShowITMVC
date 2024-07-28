@@ -15,9 +15,9 @@ namespace RepositoryArchitecture.DataLayer.Repository
             //all database operations
         }
 
-        public void GetUsers()
+        public List<Users> GetUsers()
         {
-            throw new NotImplementedException();
+            return new List<Users>();
         }
     }
 }

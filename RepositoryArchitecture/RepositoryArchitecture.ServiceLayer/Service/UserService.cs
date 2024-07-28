@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RepositoryArchitecture.DataLayer.IRepository;
+using RepositoryArchitecture.DataLayer.Models;
 using RepositoryArchitecture.Model.Models;
 using RepositoryArchitecture.ServiceLayer.IService;
 
@@ -20,14 +21,19 @@ namespace RepositoryArchitecture.ServiceLayer.Service
 
         public void CreateUser(UserModel userModel)
         {
+            Users uObj = new Users();
+            uObj.UserName = userModel.UserName;
+            uObj.UserId = userModel.UserId;
+            uObj.UserAge = userModel.UserAge;
 
-            //_userData.CreateUser(userModel);
-            throw new NotImplementedException();
+            _userData.CreateUser(uObj);
         }
 
         public void GetUsers()
         {
-            _userData.GetUsers();
+            var users = _userData.GetUsers();
+
+            //return users;
         }
     }
 }

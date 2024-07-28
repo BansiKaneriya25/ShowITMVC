@@ -10,6 +10,6 @@ namespace RepositoryArchitecture.DataLayer.IRepository
     public interface IUserData
     {
         void CreateUser(Users users);
-        void GetUsers();
+        List<Users> GetUsers();
     }
 }
