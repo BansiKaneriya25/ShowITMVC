@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,7 +32,12 @@ namespace Core_Web_API
         {
             services.AddControllers();
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("ABC", builer=> builer.WithOrigins("https://www.stackoverflow.com")
+                .AllowAnyHeader()
+                .AllowAnyMethod());
+            });
 
             services.AddApiVersioning(options =>
             {
@@ -61,6 +68,17 @@ namespace Core_Web_API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("ABC");
+
+            app.UseMiddleware<LoggingMiddleware>();
+
+            app.Run(async context => { await context.Response.WriteAsync("this response end"); 
+            //await next();
+            }
+            //next
+            );
+
 
             app.UseAuthorization();
 

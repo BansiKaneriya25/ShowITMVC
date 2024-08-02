@@ -1,0 +1,15 @@
+AutoMapper is object-to-object mapping libarary that helps to reduce the amount of manual code required to map one object to another.
+
+
+
+DB - FirstName, LastName
+
+Model- FullName
+
+
+
+nudget needs to install
+-AutoMapper
+-AutoMapper.Extensions.Microsoft.DependencyInjection
+-Microsoft.EntityFrameworkCore
+-Microsoft.EntityFrameworkCore.SqlServer

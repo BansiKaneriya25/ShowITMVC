@@ -2,7 +2,9 @@ C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\Repos
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\bin\Debug\net6.0\RepositoryArchitecture.ServiceLayer.dll
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\bin\Debug\net6.0\RepositoryArchitecture.ServiceLayer.pdb
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\bin\Debug\net6.0\RepositoryArchitecture.DataLayer.dll
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\bin\Debug\net6.0\RepositoryArchitecture.Model.dll
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\bin\Debug\net6.0\RepositoryArchitecture.DataLayer.pdb
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\bin\Debug\net6.0\RepositoryArchitecture.Model.pdb
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\obj\Debug\net6.0\RepositoryArchitecture.ServiceLayer.csproj.AssemblyReference.cache
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\obj\Debug\net6.0\RepositoryArchitecture.ServiceLayer.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\obj\Debug\net6.0\RepositoryArchitecture.ServiceLayer.AssemblyInfoInputs.cache
@@ -13,5 +15,3 @@ C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\Repos
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\obj\Debug\net6.0\refint\RepositoryArchitecture.ServiceLayer.dll
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\obj\Debug\net6.0\RepositoryArchitecture.ServiceLayer.pdb
 C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\obj\Debug\net6.0\ref\RepositoryArchitecture.ServiceLayer.dll
-C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\bin\Debug\net6.0\RepositoryArchitecture.Model.dll
-C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\RepositoryArchitecture\RepositoryArchitecture.ServiceLayer\bin\Debug\net6.0\RepositoryArchitecture.Model.pdb

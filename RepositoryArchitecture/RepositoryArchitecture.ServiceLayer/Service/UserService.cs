@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using RepositoryArchitecture.DataLayer.IRepository;
 using RepositoryArchitecture.DataLayer.Models;
 using RepositoryArchitecture.Model.Models;
@@ -13,20 +14,27 @@ namespace RepositoryArchitecture.ServiceLayer.Service
     public class UserService : IUserService
     {
         public readonly IUserData _userData;
+        public readonly IMapper _mapper;
 
-        public UserService(IUserData userData)
+        public UserService(IUserData userData, IMapper mapper)
         {
             _userData = userData;
+            _mapper = mapper;
         }
 
         public void CreateUser(UserModel userModel)
         {
-            Users uObj = new Users();
-            uObj.UserName = userModel.UserName;
-            uObj.UserId = userModel.UserId;
-            uObj.UserAge = userModel.UserAge;
+            //Manually assign one by one properties
+            //Users uObj = new Users();
+            //uObj.UserName = userModel.UserName;
+            //uObj.UserId = userModel.UserId;
+            //uObj.UserAge = userModel.UserAge;
+            //_userData.CreateUser(uObj);
 
-            _userData.CreateUser(uObj);
+
+            //With AutoMapper
+            var mapperModel = _mapper.Map<Users>(userModel);
+            _userData.CreateUser(mapperModel);
         }
 
         public void GetUsers()

@@ -38,11 +38,11 @@ namespace RepositoryArchitecture.Controllers
         // POST: UserController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(UserModel collection)
+        public ActionResult Create(UserModel userModel)
         {
             try
             {
-                _userService.CreateUser(collection);
+                _userService.CreateUser(userModel);
                 return RedirectToAction(nameof(Index));
             }
             catch

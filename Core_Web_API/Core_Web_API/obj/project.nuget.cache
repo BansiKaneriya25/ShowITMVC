@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "d//fvbg5n9yasbLP4NRAmSHMAXCyWkL6UDqkFalxvYbriYb6rjQDJ47oOttv1WDeFAsWrCg5m3jHIxQQ3gNvZA==",
+  "dgSpecHash": "gB9zIl/uEFLdkbh2RRuLAvPMCqmfvM9PKtRTqifzmxHo9y3+L3ewlIeYYgyQA69wg3KHYtKhyk0rgmqcbO+dZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\BANSIDHARA\\source\\repos\\MVC Repo\\ShowITMVC\\Core_Web_API\\Core_Web_API\\Core_Web_API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\BANSIDHARA\\.nuget\\packages\\microsoft.aspnet.cors\\5.3.0\\microsoft.aspnet.cors.5.3.0.nupkg.sha512",
     "C:\\Users\\BANSIDHARA\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.1.0\\microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
     "C:\\Users\\BANSIDHARA\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\BANSIDHARA\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
@@ -12,5 +13,16 @@
     "C:\\Users\\BANSIDHARA\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
     "C:\\Users\\BANSIDHARA\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Cors 5.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Cors",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

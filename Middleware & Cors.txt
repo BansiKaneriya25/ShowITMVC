@@ -1,0 +1,29 @@
+Middleware is a component and used to handle request and response in aso net core pipeline
+
+HttpsRedirection, Routing, Authorization, Swagger, 
+
+
+When to Use
+- Use 'Run' when you want to create terminate middleware that handles request with passing request
+- Use 'next' withing a custom middleware to control when the next middleware should be processed
+
+- RUn
+- Registers to terminate middleware
+- request pipeline ends at the middleware
+- does not pass control to the middleware
+
+Next
+- Used withinn middleware to pass control to next middleware
+- allow further middleware components to process
+
+
+Cors: CPRS - cross origin resource sharing
+- CORS in .net core that allows you to control how to your web app are accessed by other domains
+
+API - www.stackoverflowapi.com/User/GetUsers
+
+
+Angular - www.stackoverflow.com
+
+nudget installed
+Microsoft.AspNet.Cors
