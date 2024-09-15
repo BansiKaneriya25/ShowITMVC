@@ -1,0 +1,13 @@
+HttpTrigger
+
+Scenario:
+
+Let's say you are building a live chat application where users can send msg to each other in real time,
+when user send a msg, we want to process  it and save it in our database.
+
+
+Email send to user with data.
+
+
+HttpTrigger -> use by browser URL with query param or body
+QueueTrigger -> use by azure storage queue with adding new text

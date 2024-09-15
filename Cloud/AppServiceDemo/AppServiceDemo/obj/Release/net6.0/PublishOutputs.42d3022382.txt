@@ -1,0 +1,7 @@
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\Cloud\AppServiceDemo\AppServiceDemo\obj\Release\net6.0\PubTmp\Out\AppServiceDemo.exe
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\Cloud\AppServiceDemo\AppServiceDemo\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\Cloud\AppServiceDemo\AppServiceDemo\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\Cloud\AppServiceDemo\AppServiceDemo\obj\Release\net6.0\PubTmp\Out\AppServiceDemo.dll
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\Cloud\AppServiceDemo\AppServiceDemo\obj\Release\net6.0\PubTmp\Out\AppServiceDemo.deps.json
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\Cloud\AppServiceDemo\AppServiceDemo\obj\Release\net6.0\PubTmp\Out\AppServiceDemo.runtimeconfig.json
+C:\Users\BANSIDHARA\source\repos\MVC Repo\ShowITMVC\Cloud\AppServiceDemo\AppServiceDemo\obj\Release\net6.0\PubTmp\Out\AppServiceDemo.pdb

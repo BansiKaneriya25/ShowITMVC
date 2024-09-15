@@ -1,0 +1,30 @@
+Azure Function
+
+1. Queue Trigger
+
+Scenario - Imagine you are developing a system for processing order in e-commerce platform
+whenever new order is placed you want to process
+
+So in that case we can you queue trigger
+
+
+- WebJobs
+- C# - Windows Service
+
+DB
+Order1 09/09/2024 08:01:20 true
+
+
+WebJob 
+Fetch Order 1 - send email
+
+DB
+Order1 09/09/2024 08:01:20 true
+Order2 09/09/2024 08:02:20 false
+
+WebJob 
+Fetch Order 2 - send email
+
+DB
+Order1 09/09/2024 08:01:20 true
+Order2 09/09/2024 08:02:20 true
