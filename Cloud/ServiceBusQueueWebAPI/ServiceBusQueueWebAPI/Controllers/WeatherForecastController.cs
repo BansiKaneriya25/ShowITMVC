@@ -36,7 +36,6 @@ namespace ServiceBusQueueWebAPI.Controllers
         [HttpPost]
         public async Task Post(WeatherForecast data)
         {
-            //Endpoint=sb://servicebusqueuewebapi.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yVMiwZNu3XeFa5PJSOaEbWxziMVcESanQ+ASbGcoqEg=
             string connectionString = "";
 
             var client = new ServiceBusClient(connectionString);
