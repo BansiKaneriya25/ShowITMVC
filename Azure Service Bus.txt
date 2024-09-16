@@ -1,0 +1,37 @@
+Azure Service Bus Queue
+
+Azure service bus is a messaging infra component used in distributed application to facilities communication betw different services, component and process. It's a like a message broker
+
+
+Web API
+Post API --> data send -> azure service bus queue -> azure service bus queue function app
+
+Note:
+Azure.Messaging.ServiceBus - nuget
+Copy primary connection key from Shared access policies (Azure Service Bus)
+
+//////////
+Sender/Receiver
+Publisher/Subsciber
+Producer/Consumer
+
+
+How it works:
+
+1. Sender (Producer) --> post web api
+2. Queue -> azure service bus queue
+3. Receiver (Consumer) -> azure service bus function app
+
+
+Life cycle:
+
+Front end application
+	--> send data to request
+	--> post api (1. Sender)
+	--> SendMessageAsync to service bus queue (2. Queue)
+	--> Function App (Service Bus Queue) (3. Receiver/Consumer)
+
+Angular -> used our .net web api
+Angular -> from create user - save -> post
+
+Microservice - mostly used in microservice architecture
