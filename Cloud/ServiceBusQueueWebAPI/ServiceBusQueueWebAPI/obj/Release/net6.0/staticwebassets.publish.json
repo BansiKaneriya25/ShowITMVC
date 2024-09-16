@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "6V0e3y3qNOIB5nRVS60nJflFkdWGLdNUTIP/T47X6GM=",
+  "Source": "ServiceBusQueueWebAPI",
+  "BasePath": "_content/ServiceBusQueueWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
